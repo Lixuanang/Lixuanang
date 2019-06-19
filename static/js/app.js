@@ -81,7 +81,7 @@ function clickMap() {
 // 渲染全国
 function renderChineseMap() {
   //绘制全国地图
-  $.getJSON('static/map/china.json', function(data) {
+  $.getJSON('./static/map/china.json', function(data) {
     d = []
     for (var i = 0; i < data.features.length; i++) {
       d.push({
@@ -101,7 +101,7 @@ function renderProvince(params) {
   lastParams = currentParams
   currentParams = params
   //如果点击的是34个省、市、自治区，绘制选中地区的二级地图
-  $.getJSON('static/map/province/' + provinces[params.name] + '.json', function(data) {
+  $.getJSON('./static/map/province/' + provinces[params.name] + '.json', function(data) {
     echarts.registerMap(params.name, data)
     var d = []
     for (var i = 0; i < data.features.length; i++) {
@@ -124,7 +124,7 @@ function Municipality(params) {
     renderMap('china', mapdata)
   } else {
     //显示县级地图
-    $.getJSON('static/map/city/' + cityMap[params.name] + '.json', function(data) {
+    $.getJSON('./static/map/city/' + cityMap[params.name] + '.json', function(data) {
       echarts.registerMap(params.name, data)
       var d = []
       for (var i = 0; i < data.features.length; i++) {
